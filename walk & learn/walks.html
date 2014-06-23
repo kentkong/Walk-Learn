@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Walk&amp;Learn | Walks</title>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,700,800' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="style.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="js/jQuery%20Easing%20v1.3"></script>
+<script>
+    
+    $(document).ready(function() {
+        
+        var nav_top = $("nav").offset().top;
+        
+        
+        // function to create sticky naviagation
+        var sticky_navigation=function() {
+            
+            var scroll_top = $(window).scrollTop();
+            
+            if(scroll_top > nav_top){
+            
+                  console.log(nav_top)  
+                
+                 $("nav").css({'position':'fixed','top':0,'left':0,'z-index':10});  
+                 $(".selected").css({'background':'#090'});
+                
+            } else {
+                
+                 $("nav").css({'position':'fixed','position':'absolute'});
+                    $(".selected").css({'background':'inherit'});  
+            }
+        
+         // console.log(scroll_top);
+        
+        
+        };
+    
+    sticky_navigation();
+        
+    $(window).scroll(function() {
+        sticky_navigation();
+    });
+    
+    jQuery.easing.def= "easeOutBounce";
+        
+    var hash = $(location).attr('hash');
+    var gohere = $(hash).offset().top - 120;
+    
+    $('html, body').animate({scrollTop:gohere}, 1800);
+    
+    
+    });
+    
+    
+    </script>
+</head>
+<body id="walks">
+            
+    <header>       
+        <div>
+        <h1>Walk&amp;Learn</h1>
+        <p>[smart walks for curious people]</p>
+        </div>    
+    </header>      
+     
+    <div id="master">
+    <nav>
+        
+    <ul>
+        <li><a href="index.html">home</a></li>
+        <li><a href="walks.html" class="selected">walks</a></li>
+        <li><a href="guides.html">guides</a></li>
+        <li><a href="where.html" >where</a></li>
+       
+        
+    </ul>
+    
+    </nav>
+    
+    <section>
+      
+    <article class="walk" id="architecture"> 
+        <div>
+        <h1>Prague Architecture Walk</h1>
+        <p>
+        know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain,and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. .</p>
+        <ul>
+        <li>6 hours</li>
+        <li>8 km</li>
+        <li>5 miles</li>
+        <li><a href="where.html#architecture">10am today <span>(click to show map)</span></a></li>
+        </ul>
+        
+        </div>
+         </article>
+        
+        <article class="walk" id="music"> 
+        <div>
+        <h1>City Of Music</h1>
+        <p>
+        know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain,and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. .</p>
+        <ul>
+        <li>6 hours</li>
+        <li>8 km</li>
+        <li>5 miles</li>
+        <li><a href="where.html#music">10am today <span>(click to show map)</span></a></li>
+        </ul>
+        
+        </div>
+         </article>
+        
+        <article class="walk" id="gardens"> 
+        <div>
+        <h1>Secret Gardens Walks</h1>
+        <p>
+        know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain,and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. .</p>
+        <ul>
+        <li>6 hours</li>
+        <li>8 km</li>
+        <li>5 miles</li>
+        <li><a href="where.html#gardens">10am today <span>(click to show map)</span></a></li>
+        </ul>
+        
+        </div>
+         </article>
+        
+        <article class="walk" id="ghosts"> 
+        <div>
+        <h1>Ghosts and Legends Walk</h1>
+        <p>
+        know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain,and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. .</p>
+        <ul>
+        <li>6 hours</li>
+        <li>8 km</li>
+        <li>5 miles</li>
+        <li><a href="where.html#ghosts">10am today <span>(click to show map)</span></a></li>
+        </ul>
+        
+        </div>
+         </article>
+    
+    </section>
+    
+    
+    <footer>
+        
+    <ul id="social">
+        <li><a href="">Facebook</a></li>
+        <li><a href="">Twitter</a></li>
+        <li><a href="">Tumblr</a></li>
+       </ul>
+        
+        <p><b>Walk&amp;Learn</b> is operated by <a href="">The Happy People</a> and this amazing website has been designed and coded by <a href=""> Smells Like Almonds</a></p>
+    
+    </footer>
+    </div>
+    
+    
+    
+        </body>
+        </html>
+    

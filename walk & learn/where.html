@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Walk&amp;Learn | Where</title>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,700,800' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="style.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="js/jQuery%20Easing%20v1.3"></script>
+    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCaxEDVEQPDkGTWBwXbkMy1A2qMxsc0E4I"></script>
+    <script>
+        
+        var architecture = "<div class='info'><img src='media/guides/eleanor.jpg'><div><h1> \
+        Prague Architecture</h1>\
+        <p>know how to pursue pleasure rationally encounter.\
+        consequences that are extremely painful</p>\
+        <ul>\
+        <li>When: <span>9am-Sharpish!!!!</span></li>\
+        <li>Where: <span>Corner of one and another street</span></li>\
+        </ul></div><\div";
+        
+        var music = "<div class='info'><img src='media/guides/david.jpg'><div><h1> \
+        City Of Music</h1>\
+        <p>know how to pursue pleasure rationally encounter.\
+        consequences that are extremely painful</p>\
+        <ul>\
+        <li>When: <span>9am-Sharpish!!!!</span></li>\
+        <li>Where: <span>Corner of one and another street</span></li>\
+        </ul></div><\div";
+        
+        var gardens = "<div class='info'><img src='media/guides/puppy.jpg'><div><h1> \
+        Secret Gardens Walks</h1>\
+        <p>know how to pursue pleasure rationally encounter.\
+        consequences that are extremely painful</p>\
+        <ul>\
+        <li>When: <span>9am-Sharpish!!!!</span></li>\
+        <li>Where: <span>Corner of one and another street</span></li>\
+        </ul></div><\div";
+        
+        var ghosts = "<div class='info'><img src='media/guides/helmet.jpg'><div><h1> \
+        Ghosts and Legends Walk</h1>\
+        <p>know how to pursue pleasure rationally encounter.\
+        consequences that are extremely painful</p>\
+        <ul>\
+        <li>When: <span>9am-Sharpish!!!!</span></li>\
+        <li>Where: <span>Corner of one and another street</span></li>\
+        </ul></div><\div";
+
+        
+
+        function createMarker(lat, lng, map, content, open) {
+            
+            var markerPos = new google.maps.LatLng(lat, lng);
+        
+            var marker = new google.maps.Marker({position:markerPos, map:map});
+            
+            var info = new google.maps.InfoWindow({content:content});
+            
+    
+            
+            google.maps.event.addListener(marker, 'click', function() { info.open(map, marker); });
+            
+            if (open) {
+            google.maps.event.addListenerOnce(map, 'tilesloaded', function() { info.open(map, marker); });
+            }
+            
+        }
+        
+        function createMap() {
+        
+            var mapCenter = new google.maps.LatLng(50.126388, 14.499833);
+            
+            var mapOptions = {center:mapCenter, zoom:12, scrollwheel:false, draggable:false};
+            
+            var map = new google.maps.Map(document.getElementById("map"),mapOptions);
+        
+            createMarker(50.126388, 14.499833, map, architecture, (opener) [0]);
+            createMarker(50.070592, 14.419004, map, music, (opener) [1]);
+            createMarker(50.071707, 14.395186, map, gardens, (opener) [2]);
+            createMarker(50.068016, 14.435097, map, ghosts, (opener) [3]);
+            
+    
+        }   
+        
+        function goToMap () {
+            jQuery.easing.def= "easeOutBounce";
+            var gohere = $("nav").offset().top;
+            $('html, body'). animate({scrollTop:gohere}, 1800);
+        }
+         
+        var opener = [false, false, false, false];
+                                      
+        
+        google.maps.event.addDomListener(window, 'load', createMap);
+        
+    $(document).ready(function() {
+        
+        var hash = $(location).attr('hash');
+        
+        if(hash == "#architecture") {
+            opener = [true, false, false, false];
+            setTimeout(goToMap, 1000);
+         }else if(hash == "#music") {
+            opener = [false, true, false, false];
+             setTimeout(goToMap, 1000);
+        }else if(hash == "#gardens") {
+            opener = [false, false, true, false];
+            setTimeout(goToMap, 1000);
+        }else if(hash == "#ghosts") {
+            opener = [false, false, false, true];
+            setTimeout(goToMap, 1000);
+        }
+        
+        var nav_top = $("nav").offset().top;
+        
+        
+        // function to create sticky navigation
+        var sticky_navigation=function() {
+            
+            var scroll_top = $(window).scrollTop();
+            
+            if(scroll_top > nav_top){
+            
+                  console.log(nav_top)  
+                
+                 $("nav").css({'position':'fixed','top':0,'left':0,'z-index':10});  
+                 $(".selected").css({'background':'#090'});
+                
+            } else {
+                
+                 $("nav").css({'position':'fixed','position':'absolute'});
+                    $(".selected").css({'background':'inherit'});  
+            }
+        
+         // console.log(scroll_top);
+        
+        
+        };
+    
+    sticky_navigation();
+        
+    $(window).scroll(function() {
+        sticky_navigation();
+    });
+    
+    
+    
+    
+    
+    });
+    
+    
+    </script>
+</head>
+<body id="where">
+            
+    <header>       
+        <div>
+        <h1>Walk&amp;Learn</h1>
+        <p>[smart walks for curious people]</p>
+        </div>    
+    </header>      
+     
+    <div id="master">
+    <nav>
+        
+    <ul>
+        <li><a href="index.html">home</a></li>
+        <li><a href="walks.html">walks</a></li>
+        <li><a href="guides.html">guides</a></li>
+        <li><a href="where.html" class="selected">where</a></li>
+       
+        
+    </ul>
+    
+    </nav>
+        
+          
+        <section>
+            
+        <div id="map"></div>
+        
+        </section>
+    
+    
+    <footer>
+        
+    <ul id="social">
+        <li><a href="">Facebook</a></li>
+        <li><a href="">Twitter</a></li>
+        <li><a href="">Tumblr</a></li>
+       </ul>
+        
+        <p><b>Walk&amp;Learn</b> is operated by <a href="">The Happy People</a> and this amazing website has been designed and coded by <a href=""> Smells Like Almonds</a></p>
+    
+    </footer>
+    </div>
+    
+    
+    
+        </body>
+        </html>
+    

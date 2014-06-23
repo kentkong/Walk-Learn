@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Walk&amp;Learn | Guides</title>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,700,800' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="style.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
+<script src="js/waypoints.js"></script>
+<script>
+    
+    $(document).ready(function() {
+        
+        var nav_top = $("nav").offset().top;
+        
+        
+        // function to create sticky navigation
+        var sticky_navigation=function() {
+         
+            
+            var scroll_top = $(window).scrollTop();
+            
+            if(scroll_top > nav_top){
+            
+                  console.log(nav_top)  
+                
+                 $("nav").css({'position':'fixed','top':0,'left':0,'z-index':10});  
+                 $(".selected").css({'background':'#090'});
+                
+            } else {
+                
+                 $("nav").css({'position':'fixed','position':'absolute'});
+                    $(".selected").css({'background':'inherit'});  
+            }
+        
+         // console.log(scroll_top);
+        
+        
+        };
+    
+    sticky_navigation();
+        
+    $(window).scroll(function() {
+        sticky_navigation();
+    });
+    
+        
+        $(".hidden").waypoint(function(direction) {
+        
+        if(direction === 'down') {
+        $(this).fadeTo('slow', 1);
+         } else {
+        $(this).fadeTo('slow', 0);
+        
+        }
+        
+        }, { offset: 'bottom-in-view'});
+    
+    
+    });
+    
+    
+    </script>
+</head>
+<body id="guides">
+            
+    <header>       
+        <div>
+        <h1>Walk&amp;Learn</h1>
+        <p>[smart walks for curious people]</p>
+        </div>    
+    </header>      
+     
+    <div id="master">
+    <nav>
+        
+    <ul>
+        <li><a href="index.html" >home</a></li>
+        <li><a href="walks.html">walks</a></li>
+        <li><a href="guides.html" class="selected">guides</a></li>
+        <li><a href="where.html">where</a></li>
+       
+        
+    </ul>
+    
+    </nav>
+        
+        <section>
+        
+            <article class="guide">
+            <img src="media/guides/eleanor.jpg" alt="Eleanor Ruby" class="f-left hidden"> 
+            <div class="f-right"
+            <h1>Eleanor Ruby </h1>
+            <h2>A lover of Wolfgang Amadeus Motzart and your guide to all things to do with music.</h2>
+            
+            <p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself.</p>
+         </div>   
+            
+            </article>s
+    
+        <article class="guide">
+            <img src="media/guides/helmet.jpg" alt="Eleanor Ruby" class="f-right hidden">
+            <div class="f-left"
+            <h1> Lord Immanuel Noir </h1>
+            <h2>Master of the dark ants and your guide to the legends of the ancient world.</h2>
+            
+            <p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself.</p>
+         </div>   
+            
+            </article>
+
+    <article class="guide">
+            <img src="media/guides/david.jpg" alt="Eleanor Ruby"class="f-left hidden">
+            <div class="f-right"
+            <h1>Acyrtrep David </h1>
+            <h2>The Jedi Master himself.</h2>
+            
+            <p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself.</p>
+         </div>   
+            
+            </article>
+
+    <article class="guide">
+            <img src="media/guides/puppy.jpg" alt="Eleanor Ruby"class="f-right hidden">
+            <div class="f-left"
+            <h1>Mango Basenji </h1>
+            <h2>Deep, deep, deep Philosopher.</h2>
+            
+            <p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself.</p>
+         </div>   
+            
+            </article>
+
+            
+        
+        </section>
+    
+    
+    
+    <footer>
+        
+    <ul id="social">
+        <li><a href="">Facebook</a></li>
+        <li><a href="">Twitter</a></li>
+        <li><a href="">Tumblr</a></li>
+       </ul>
+        
+        <p><b>Walk&amp;Learn</b> is operated by <a href="">The Happy People</a> and this amazing website has been designed and coded by <a href=""> Smells Like Almonds</a></p>
+    
+    </footer>
+    </div>
+    
+    
+    
+        </body>
+        </html>
+    
